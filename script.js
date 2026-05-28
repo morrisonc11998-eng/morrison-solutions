@@ -12,22 +12,51 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission handling
+// Form submission handling with email integration
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+    contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
         
         // Get form values
-        const name = this.querySelector('input[type="text"]').value;
-        const email = this.querySelector('input[type="email"]').value;
-        const message = this.querySelector('textarea').value;
+        const name = this.querySelector('input[name="name"]').value;
+        const email = this.querySelector('input[name="email"]').value;
+        const message = this.querySelector('textarea[name="message"]').value;
+        const submitButton = this.querySelector('.submit-button');
         
-        // Show success message
-        alert(`Thank you, ${name}! We've received your message and will get back to you soon at ${email}.`);
+        // Disable button and show loading state
+        submitButton.disabled = true;
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
         
-        // Reset form
-        this.reset();
+        try {
+            // Send form data to PHP handler
+            const response = await fetch('send-email.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)}`
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                // Show success message
+                alert(`Thank you, ${name}! Your project request has been sent to our team. We'll get back to you within 24 hours at ${email}.`);
+                this.reset();
+                submitButton.textContent = originalText;
+            } else {
+                alert('Error: ' + data.message);
+                submitButton.textContent = originalText;
+            }
+        } catch (error) {
+            console.error('Error sending form:', error);
+            alert('Failed to send request. Please try again.');
+            submitButton.textContent = originalText;
+        } finally {
+            submitButton.disabled = false;
+        }
     });
 }
 
@@ -53,10 +82,6 @@ document.querySelectorAll('.service-card').forEach(card => {
     observer.observe(card);
 });
 
-// Mobile menu toggle (if needed for responsive design)
-const navMenu = document.querySelector('.nav-menu');
-const navContainer = document.querySelector('.nav-container');
-
 // Add active state to navigation on scroll
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section');
@@ -77,4 +102,4 @@ window.addEventListener('scroll', () => {
     });
 });
 
-console.log('Morrison Solutions website loaded successfully!');
+console.log('CForged website loaded successfully!');
