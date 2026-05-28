@@ -64,6 +64,15 @@
             background: #050505;
             border-top: 2px solid var(--primary);
         }
+        .logo img {
+            height: 50px;
+            width: auto;
+            filter: drop-shadow(0 0 8px #00ff9f);
+            transition: transform 0.3s ease;
+        }
+        .logo:hover img {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -72,7 +81,7 @@
         <div class="nav-container">
             <!-- CForged Logo -->
             <div class="logo">
-                ⚡ CForged
+                <img src="logo.png" alt="CForged Logo" title="CForged - Electronics Engineering">
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
