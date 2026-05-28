@@ -67,11 +67,12 @@
         .logo img {
             height: 50px;
             width: auto;
-            filter: drop-shadow(0 0 8px #00ff9f);
-            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 8px #ff6600) drop-shadow(0 0 12px #ff8800);
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
         .logo:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(0 0 12px #ff6600) drop-shadow(0 0 16px #ffaa00);
         }
     </style>
 </head>
@@ -81,7 +82,7 @@
         <div class="nav-container">
             <!-- CForged Logo -->
             <div class="logo">
-                <img src="logo.png" alt="CForged Logo" title="CForged - Electronics Engineering">
+                <img src="logo.svg" alt="CForged Logo" title="CForged - Electronics Engineering">
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
