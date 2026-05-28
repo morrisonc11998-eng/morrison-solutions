@@ -39,6 +39,7 @@ body {
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .nav-menu {
@@ -50,12 +51,16 @@ body {
 .nav-menu a {
     color: white;
     text-decoration: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, border-bottom 0.3s ease;
     font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
 }
 
-.nav-menu a:hover {
-    opacity: 0.8;
+.nav-menu a:hover,
+.nav-menu a.active {
+    opacity: 1;
+    border-bottom-color: white;
 }
 
 /* Hero Section */
@@ -74,30 +79,36 @@ body {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     animation: slideInDown 0.8s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .hero-content p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
-    opacity: 0.9;
+    opacity: 0.95;
     animation: slideInUp 0.8s ease;
 }
 
 .cta-button {
     background: white;
     color: #667eea;
-    padding: 12px 30px;
+    padding: 14px 35px;
     font-size: 1.1rem;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     font-weight: bold;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background: #f0f0f0;
+}
+
+.cta-button:active {
+    transform: translateY(-1px);
 }
 
 /* Services Section */
@@ -126,16 +137,24 @@ body {
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+    border-color: #667eea;
 }
 
 .service-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .service-card h3 {
@@ -147,6 +166,7 @@ body {
 .service-card p {
     color: #666;
     font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 /* About Section */
@@ -183,6 +203,13 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
 }
 
 .stat h3 {
@@ -203,8 +230,15 @@ body {
 .contact h2 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: #333;
+}
+
+.contact > .container > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
 }
 
 .contact-form {
@@ -222,31 +256,40 @@ body {
     border-radius: 5px;
     font-size: 1rem;
     font-family: inherit;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
     border-color: #667eea;
-    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
 }
 
 .submit-button {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 12px 30px;
+    padding: 14px 30px;
     border: none;
     border-radius: 5px;
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
 .submit-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.submit-button:active {
+    transform: translateY(-1px);
+}
+
+.submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 /* Footer */
@@ -255,6 +298,7 @@ body {
     color: white;
     text-align: center;
     padding: 2rem;
+    border-top: 1px solid #555;
 }
 
 /* Animations */
@@ -307,5 +351,11 @@ body {
 
     .stats {
         grid-template-columns: 1fr;
+    }
+
+    .cta-button,
+    .submit-button {
+        padding: 12px 25px;
+        font-size: 1rem;
     }
 }
