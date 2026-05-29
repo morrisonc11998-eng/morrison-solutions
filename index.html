@@ -3,16 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="C-Forged - Custom PCB Repair, Arduino Programming, and Electronics Solutions">
-    <title>C-Forged - Electronics Repair & Custom Projects</title>
-    <!-- Add your original styles and content here -->
+    <meta name="description" content="CForged - Custom PCB design, Arduino programming, and electronics restoration services. Fixing faulty boards in HVAC systems, printers, appliances and more.">
+    <meta name="keywords" content="PCB repair, Arduino programming, electronics restoration, HVAC repair">
+    <title>CForged | Custom PCB & Arduino Electronics Engineering</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        h1 { color: #22c55e; }
+        :root {
+            --primary: #00ff9f;
+            --bg: #0a0a0a;
+            --card: #111111;
+        }
+        body {
+            background: var(--bg);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        .navbar {
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 2px solid var(--primary);
+            box-shadow: 0 0 15px rgba(0, 255, 159, 0.3);
+        }
+        .hero {
+            background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 40px,
+                rgba(0, 255, 159, 0.05) 40px,
+                rgba(0, 255, 159, 0.05) 41px
+            );
+            pointer-events: none;
+        }
+        h1, h2, h3 {
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+        }
+        .service-card {
+            background: var(--card);
+            border: 1px solid #222;
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 255, 159, 0.4);
+            transform: translateY(-5px);
+        }
+        .cta-button, .submit-button {
+            background: var(--primary);
+            color: #000;
+            font-weight: bold;
+        }
+        .footer {
+            background: #050505;
+            border-top: 2px solid var(--primary);
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+            filter: drop-shadow(0 0 8px #ff6600) drop-shadow(0 0 12px #ff8800);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .logo:hover img {
+            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(0 0 12px #ff6600) drop-shadow(0 0 16px #ffaa00);
+        }
     </style>
 </head>
 <body>
-    <h1>Restoring original C-Forged site...</h1>
-    <p>This is a temporary placeholder. Please paste the full original HTML below so I can push the real version.</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- CForged Logo -->
+            <div class="logo">
+                <img src="image-23.jpg" alt="CForged Logo" title="CForged - Electronics Engineering">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Request Project</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>⚡ CForged</h1>
+            <p>Custom PCB Design • Arduino Programming • Electronics Restoration</p>
+            <p style="font-size: 1.3rem; margin: 20px 0;">Fixing faulty boards in HVAC systems, printers, appliances & more.</p>
+            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Request Your Project</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Engineering Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔌</div>
+                    <h3>PCB Repair & Restoration</h3>
+                    <p>Diagnose and repair faulty printed circuit boards in HVAC units, printers, appliances, and industrial electronics with precision diagnostics.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📟</div>
+                    <h3>Arduino Programming</h3>
+                    <p>Custom firmware, sensor integration, automation scripts — from simple fixes to full control systems for your specific needs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Custom Electronics Projects</h3>
+                    <p>Small-scale PCB design, prototyping, and one-off engineering solutions tailored to your requirements and specifications.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Electronics Diagnostics</h3>
+                    <p>Reverse-engineering and troubleshooting legacy boards in printers, HVAC systems, and consumer devices with expert analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About CForged</h2>
+            <p>We specialize in bringing dead electronics back to life. Whether it's a failed HVAC control board, a broken printer PCB, or a custom Arduino automation project — we handle the en[...]
+            <div class="stats">
+                <div class="stat">
+                    <h3>⚡ Fast</h3>
+                    <p>Most projects completed in 3–7 days</p>
+                </div>
+                <div class="stat">
+                    <h3>🎯 Custom</h3>
+                    <p>From diagnosis to full deployment</p>
+                </div>
+                <div class="stat">
+                    <h3>🏆 Expert</h3>
+                    <p>Arduino, PCB repair, embedded systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Project Request -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Request Your Project</h2>
+            <p>Tell us about your faulty PCB, Arduino idea, or electronics repair need. We'll get back to you within 24 hours.</p>
+            <form class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Describe your project (e.g. HVAC control board repair, Arduino automation, printer PCB fix...)" rows="6" required></textarea>
+                <button type="submit" class="submit-button">Send Project Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 CForged. Forging reliable electronics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
