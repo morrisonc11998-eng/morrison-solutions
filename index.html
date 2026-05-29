@@ -24,7 +24,7 @@
             box-shadow: 0 0 15px rgba(0, 255, 159, 0.3);
         }
         .hero {
-            background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, rgba(17, 17, 17, 0.92), rgba(26, 26, 26, 0.92)), url('image-29.jpg') right center/30% no-repeat;
             position: relative;
             overflow: hidden;
         }
@@ -47,21 +47,46 @@
         }
         .service-card {
             background: var(--card);
-            border: 1px solid #222;
+            border: 2px solid #222;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('image-29.jpg') center/cover;
+            opacity: 0.06;
+            transition: opacity 0.3s;
+        }
+        .service-card-content {
+            position: relative;
+            z-index: 1;
         }
         .service-card:hover {
             border-color: var(--primary);
             box-shadow: 0 0 20px rgba(0, 255, 159, 0.4);
             transform: translateY(-5px);
         }
+        .service-card:hover::after {
+            opacity: 0.12;
+        }
         .cta-button, .submit-button {
             background: var(--primary);
             color: #000;
             font-weight: bold;
+            border: none;
+        }
+        .cta-button:hover {
+            background: #00ff9f;
+            box-shadow: 0 0 15px rgba(0, 255, 159, 0.6);
         }
         .footer {
-            background: #050505;
+            background: linear-gradient(135deg, rgba(5, 5, 5, 0.95), rgba(15, 15, 15, 0.95)), url('image-29.jpg') left center/25% no-repeat;
             border-top: 2px solid var(--primary);
         }
         .logo img {
@@ -73,6 +98,12 @@
         .logo:hover img {
             transform: scale(1.1) rotate(5deg);
             filter: drop-shadow(0 0 12px #ff6600) drop-shadow(0 0 16px #ffaa00);
+        }
+        .accent-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 2rem 0;
+            box-shadow: 0 0 15px rgba(0, 255, 159, 0.5);
         }
     </style>
 </head>
@@ -103,40 +134,52 @@
         </div>
     </section>
 
+    <div class="accent-divider"></div>
+
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
             <h2>Our Engineering Services</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🔌</div>
-                    <h3>PCB Repair & Restoration</h3>
-                    <p>Diagnose and repair faulty printed circuit boards in HVAC units, printers, appliances, and industrial electronics with precision diagnostics.</p>
+                    <div class="service-card-content">
+                        <div class="service-icon">🔌</div>
+                        <h3>PCB Repair & Restoration</h3>
+                        <p>Diagnose and repair faulty printed circuit boards in HVAC units, printers, appliances, and industrial electronics with precision diagnostics.</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📟</div>
-                    <h3>Arduino Programming</h3>
-                    <p>Custom firmware, sensor integration, automation scripts — from simple fixes to full control systems for your specific needs.</p>
+                    <div class="service-card-content">
+                        <div class="service-icon">📟</div>
+                        <h3>Arduino Programming</h3>
+                        <p>Custom firmware, sensor integration, automation scripts — from simple fixes to full control systems for your specific needs.</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🛠️</div>
-                    <h3>Custom Electronics Projects</h3>
-                    <p>Small-scale PCB design, prototyping, and one-off engineering solutions tailored to your requirements and specifications.</p>
+                    <div class="service-card-content">
+                        <div class="service-icon">🛠️</div>
+                        <h3>Custom Electronics Projects</h3>
+                        <p>Small-scale PCB design, prototyping, and one-off engineering solutions tailored to your requirements and specifications.</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>Electronics Diagnostics</h3>
-                    <p>Reverse-engineering and troubleshooting legacy boards in printers, HVAC systems, and consumer devices with expert analysis.</p>
+                    <div class="service-card-content">
+                        <div class="service-icon">🔧</div>
+                        <h3>Electronics Diagnostics</h3>
+                        <p>Reverse-engineering and troubleshooting legacy boards in printers, HVAC systems, and consumer devices with expert analysis.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <div class="accent-divider"></div>
+
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <h2>About CForged</h2>
-            <p>We specialize in bringing dead electronics back to life. Whether it's a failed HVAC control board, a broken printer PCB, or a custom Arduino automation project — we handle the en[...]
+            <p>We specialize in bringing dead electronics back to life. Whether it's a failed HVAC control board, a broken printer PCB, or a custom Arduino automation project — we handle the entire process from diagnosis to deployment with expert precision and speed.</p>
             <div class="stats">
                 <div class="stat">
                     <h3>⚡ Fast</h3>
@@ -153,6 +196,8 @@
             </div>
         </div>
     </section>
+
+    <div class="accent-divider"></div>
 
     <!-- Contact / Project Request -->
     <section id="contact" class="contact">
